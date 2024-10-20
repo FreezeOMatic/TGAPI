@@ -7,6 +7,8 @@ import (
 	"tgapi/internal/commands"
 )
 
+const tgBotActionCodeGenerate = 1
+
 type Commands struct {
 	help        commands.Cmd
 	subcommands map[string]commands.Cmd
@@ -54,6 +56,10 @@ func (c Commands) Extract(msg string) commands.Cmd {
 type BotCommand struct {
 	command string
 	regexp  *regexp.Regexp
+}
+
+func (c BotCommand) ActionCode() int {
+	return tgBotActionCodeGenerate
 }
 
 func (c BotCommand) Command() string {

@@ -6,6 +6,7 @@ type Commands interface {
 }
 
 type Cmd interface {
+	ActionCode() int
 	Command() string
 	Message(t string) string
 	Compiler() string
